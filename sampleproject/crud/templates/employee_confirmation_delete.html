@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    function postit(value) {
+        document.getElementById('h1').value = value
+        document.getElementById('frm1').submit()
+    }
+
+</script>
+
+<form id="frm1" method="post"> {% csrf_token %}
+    Are you sure want to delete "{{ object }}" ?
+    <input type="hidden" id="h1" name="h1" />
+    <input onclick="postit('no')" type="button" value="back"/>
+    <input onclick="postit('yes')" type="button" value="delete">
+</form>

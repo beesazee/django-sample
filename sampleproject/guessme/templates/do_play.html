@@ -1,0 +1,31 @@
+<h1>let's play</h1>
+
+{% if user_value %}
+    {% for value in user_value %}
+        {% if value > rand_value %}
+            <p> <strong> {{ value }} is greater </strong></p>
+        {% else %}
+            <p> <strong> {{ value }} is lesser </strong></p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if counter %}
+    <p><strong>Chance : {{ counter }} </strong></p>
+{% endif %}
+
+{% if content %}
+    <p><strong>Chance : {{ content }}</strong></p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Enter the value : </label>
+        <input type="text" name="user_value"/>
+    </p>
+    <p>
+        <input type="submit" value="check"/>
+        <input type="button" value="reset">
+    </p>
+</form>

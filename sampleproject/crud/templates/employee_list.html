@@ -1,0 +1,44 @@
+<h1> Employees</h1>
+
+<table cellpadding="5" cellspacing="5">
+    <caption>
+        {% if messages %}
+    <ul class="messages">
+     {% for message in messages %}
+     <li {% if mesage.tags %} class="{{ message.tags }}" {% endif %}>
+         {{ message }}
+     </li>
+     {% endfor %}
+ </ul>
+    {% endif %} <br/>
+        <a href="/crud/new">add employee</a>
+    </caption>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Designation</th>
+        <th>Department</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+
+
+    {% for employee in object_list %}
+    <tr>
+    <td><a href="/crud/show/{{ employee.id }}"> {{ employee.id }} </a></td>
+    <td> {{ employee.first_name }} </td>
+    <td> {{ employee.last_name }} </td>
+    <td> {{ employee.age }} </td>
+    <td> {{ employee.gender }} </td>
+    <td> {{ employee.designation }} </td>
+    <td> {{ employee.department }} </td>
+    <td> <a href="/crud/edit/{{ employee.id }}">edit</a></td>
+    <td> <a href="/crud/delete/{{ employee.id }}">delete</a></td>
+    <td>&nbsp;</td>
+    </tr>
+    {% endfor %}
+
+
+</table>

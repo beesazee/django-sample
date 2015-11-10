@@ -1,0 +1,25 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+{{ random_number }}
+
+<script type="text/javascript">
+    function submit()
+    {
+    alert("active");
+     $.ajax({
+                    url: '/checkme/?value='+"12",
+                    method: "GET",
+                   success: function(data) {
+
+                            alert("sasd")
+
+                      },
+                      error: function(data) {
+
+                     },
+                  });
+    }
+
+</script>
+
+<input type="text" name="guess"/>
+<input id="submit" type="button" value="submit" onclick="submit()"/>
